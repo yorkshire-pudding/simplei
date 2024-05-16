@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Simple Environment indicator.
@@ -13,17 +12,16 @@ function simplei_init() {
   if (!empty($simple_environment_indicator)) {
     $indicator = explode(' ', str_replace('  ', ' ', $simple_environment_indicator), 2);
 
-    if (module_exists('admin_bar') and user_access('access administration bar')) {
+    if (module_exists('admin_bar') && user_access('access administration bar')) {
       $css = "#admin-bar { background: $indicator[0]; }";
 
       if (!empty($indicator[1])) {
-        $css .= "#admin-bar .dropdown .admin-bar-icon > a span { display: none; }";
-        $css .= "#admin-bar .dropdown .admin-bar-icon > a:before { content: '$indicator[1]'; padding-right: 7px; }";
+        $css .= "#admin-bar .dropdown .admin-bar-icon > a .admin-bar-link-text:before { content: '$indicator[1]'; padding-right: 7px; }";
       }
       if (!empty($css)) {
         backdrop_add_css($css, array('type' => 'inline', 'weight' => 10));
       }
-      
+
       $js_settings = array(
         'simplei' => array(
           'addFavicon' => TRUE,
