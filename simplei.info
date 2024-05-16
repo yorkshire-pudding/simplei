@@ -3,3 +3,5 @@ description = Environment Indicator, Super Light.
 package = Administration
 backdrop = 1.x
 type = module
+
+dependencies[] = system (>=1.28.0)
